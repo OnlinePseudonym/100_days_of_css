@@ -1,0 +1,153 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+.root {
+  width: 25rem;
+  height: 25rem;
+  margin: auto;
+  margin-top: 2rem;
+  background: #223147;
+  display: grid;
+  grid-template-rows: repeat(18, 1fr);
+  grid-template-columns: repeat(18, 1fr);
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.circle {
+  background: #334969;
+  grid-area: 4 / 6 / 12 / 14;
+  border-radius: 50%;
+}
+
+.icon {
+  position: absolute;
+  grid-area: 6 / 7 / 10 / 13;
+  width: 100%;
+  height: 100%;
+  stroke: #e6e6e6;
+  fill: none;
+  stroke-width: 2px;
+  stroke-dasharray: 425;
+  overflow: hidden;
+}
+
+.mail {
+  stroke-dashoffset: 0;
+}
+
+.plane {
+  stroke-dashoffset: 425;
+}
+
+.button {
+  position: relative;
+  grid-area: 14 / 6 / 16 / 14;
+  border-radius: 2rem;
+  background: #e6e6e6;
+  color: #334969;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  background: #39d4c7;
+}
+
+
+#checkbox {
+  opacity: 0;
+  grid-area: 14 / 6 / 16 / 14;
+}
+
+#checkbox:checked ~ .mail {
+  stroke-dashoffset: 425;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+#checkbox:checked ~ .plane {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s ease-in-out .7s;
+  animation: takeoff 2.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+#checkbox:checked ~ .circle {
+  animation: circle 1s ease-in-out 1s;
+  animation-fill-mode: forwards;
+}
+
+#checkbox:checked ~ .button {
+  animation: button 3.5s ease-in-out;
+}
+
+#checkbox:checked ~ .button::after {
+  content: "RESET";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 2rem;
+  background: #e66565;
+  color: #334969;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  animation: stall 3.5s linear;
+  animation-fill-mode: forwards;
+}
+
+.button:hover::after {
+  background: #39d4c7;
+}
+
+@keyframes takeoff {
+  0, 40% {
+    transform: translate3d(0,0,0) scale(1);
+  }
+  50% {
+    transform: translate3d(-1rem, .5rem, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(20rem, -10rem, 0) scale(0.4);
+  }
+}
+
+@keyframes circle {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0);
+  }
+
+}
+
+@keyframes stall {
+  0%, 60% {
+    opacity: 0;
+  }
+  65%, 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes button {
+  0%, 55% {
+    transform: scale(1);
+  }
+  60%, 70% {
+    transform: scale(0);
+  }
+  85%, 100% {
+    transform: scale(1);
+  }
+}

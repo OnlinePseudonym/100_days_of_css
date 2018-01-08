@@ -1,0 +1,88 @@
+.frame {
+    background: #111;
+    height: 25rem;
+    width: 25rem;
+    margin: auto;
+    margin-top: 2rem;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  
+  .content {
+    opacity: 1;
+    grid-area: 2 / 2 / 4 / 4;
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-transition: opacity .8s ease-in-out;
+    transition: opacity .8s ease-in-out;
+  }
+  
+  .sky {
+    background: #4ce6f7;
+    height: 7.5rem;
+  }
+  
+  .ground {
+    background: #e6da9a;
+    height: 4.5rem;
+  }
+  
+  .pyramid-container {
+    transform: translate(0, -12rem);
+    height: 7.5rem;
+    overflow: hidden;
+  }
+  
+  .left-side {
+    position: absolute;
+    height: 6rem;
+    width: 6rem;
+    background: #fff;
+    z-index: 2;
+    transform: rotate(30deg);
+    transform-origin: 0% 0%;
+  }
+  
+  .right-side {
+    position: absolute;
+    height: 6rem;
+    width: 6rem;
+    background: #dcdbdb;
+    transform: rotate(45deg);
+    top: 60%;
+    left: 25%;
+    overflow: hidden;
+  }
+  
+  .sun-container {
+    transform: translate(0, -14rem);
+    height: 7.5rem;
+    -webkit-transition: transform 2s ease-in-out, display 2s ease-in-out;
+    transition: transform 2s ease-in-out, display 2s ease-in-out;
+  }
+  
+  .sun {
+    position: absolute;
+    background: #f9f350;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    top: 40%;
+    left: -22%;
+  }
+  
+  .sunrise {
+    transform: translate(0, -14rem) rotate(60deg);
+  }
+  
+  .sunset {
+    transform: translate(0, -14rem) rotate(179deg);
+  }
+  
+  .night {
+    opacity: 0;
+  }

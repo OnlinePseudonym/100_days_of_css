@@ -1,0 +1,73 @@
+.root {
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    margin: auto;
+    margin-top: 2rem;
+    background: #111;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-rows: 1.5fr 1fr 1.5fr;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+  }
+  
+  .pacman {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    grid-area: 2 / 2 / 3 / 3;
+    fill: none;
+    stroke: #f5e558;
+    stroke-width: 50px;
+    stroke-linecap: butt;
+    stroke-dasharray: 160;
+    animation: bite 1s ease-in-out infinite;
+  }
+  
+  .eye {
+    position: absolute;
+    grid-area: 2 / 2 / 3 / 3;
+    animation: eye 1s ease-in-out infinite;
+  }
+  
+  .dots {
+    grid-area: 2 / 2 / 3 / 4;
+    width: 250px;
+    height: 100px;
+    stroke: #f5e558;
+    stroke-width: 15;
+    stroke-linecap: round;
+    stroke-dasharray: 0 75;
+    stroke-dashoffset: 15;
+    animation: points 1s linear infinite;
+  }
+  
+  @keyframes bite {
+    0%, 100% {
+      stroke-dashoffset: 0;
+      transform: rotate(0deg);
+    }
+    50% {
+      stroke-dashoffset: 40;
+      transform: rotate(45deg);
+    }
+  }
+  
+  @keyframes eye {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(-4px, -4px, 0);
+    }
+  }
+  
+  @keyframes points {
+    0% {
+      stroke-dashoffset: 15;
+    }
+    100% {
+      stroke-dashoffset: 90;
+    }
+  }
+  

@@ -1,0 +1,155 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+.root {
+  position: relative;
+  width: 25rem;
+  height: 25rem;
+  margin: auto;
+  margin-top: 2rem;
+  background: #34d489;
+  border-radius: 3px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: 1.5fr 1.5fr 1fr 1.5fr 1.5fr;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#button {
+  grid-area: 4 / 2 / 5 / 5;
+  opacity: 0;
+}
+
+
+.finish {
+  grid-area: 4 / 2 / 5 / 5;
+  border-radius: 2rem;
+  border: 2px solid #fafafa;
+  outline: none;
+  color: #fafafa;
+  background: none;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: .25rem;
+  transition: background .4s ease-in-out;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.finish:hover {
+  background: #2cbb78;
+  cursor: pointer;
+}
+
+.circle {
+  width: 57px;
+  height: 57px;
+  grid-area: 4 / 3 / 5 / 4;
+  fill: none;
+  stroke-width: 2px;
+  stroke: #fafafa;
+  stroke-linecap: round;
+  stroke-dasharray: 185;
+  stroke-dashoffset: 185;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.circle-bg {
+  grid-area: 4 / 3 / 5 / 4;
+  fill: none;
+  stroke-width: 2px;
+  stroke: #2cbb78;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+.circle-checked {
+  grid-area: 4 / 3 / 5 / 4;
+  opacity: 0;
+  fill: #fafafa;
+  stroke-width: 2px;
+  stroke: #fafafa;
+  pointer-events: none;
+}
+
+.fa-check {
+  grid-area: 4 / 3 / 5 / 4;
+  font-size: 2rem;
+  justify-self: center;
+  align-self: center;
+  color: #34d489;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#button:checked ~ .finish {
+  animation: finish .7s linear;
+  animation-fill-mode: forwards;
+}
+
+#button:checked ~ .circle {
+  animation: opacity .2s ease-in-out .3s, stroke 1s linear .3s;
+  animation-fill-mode: forwards;
+}
+
+#button:checked ~ .circle-bg {
+  animation: opacity .3s ease-in-out .2s;
+  animation-fill-mode: forwards;
+}
+
+#button:checked ~ .circle-checked {
+  animation: opacity .3s ease 1.2s;
+  animation-fill-mode: forwards;
+}
+
+#button:checked ~ .fa-check {
+  animation: opacity .5s ease 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes stroke {
+  0% {
+    stroke-dashoffset: 185;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes finish {
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+    border: 2px solid #fafafa; 
+  }
+  25% {
+    transform: scaleX(.5);
+    opacity: 1;
+    border: 2px solid #2cbb78;
+  }
+  50% {
+    transform: scaleX(0);
+    opacity: 0;
+    border: 2px solid #2cbb78;
+  }
+  60%, 100% {
+    transform: scaleX(.25);
+    opacity: 0;
+    border: 2px solid #2cbb78;
+  }
+}

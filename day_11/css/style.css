@@ -1,0 +1,79 @@
+.frame {
+    height: 25rem;
+    width: 25rem;
+    background: #e6d3ba;
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  }
+  
+  .shoes {
+    flex-basis: 60%;
+    position: relative;
+  }
+  
+  .leg {
+    position: absolute;
+    top: 0;
+    left: 9rem;
+    width: 10rem;
+    height: 16rem;
+    transform-origin: 50% 0;
+  }
+  
+  .right {
+    animation: stride 2s ease-in-out infinite;
+  }
+  
+  .left {
+    animation: stride 2s ease-in-out 1s infinite;
+  }
+  
+  .shoe {
+    position: absolute;
+    height: 10rem;
+    width: 10rem;
+    bottom: 0;
+    background: url(http://www.clipartsfree.net/svg/simple-brown-boot_Clipart_svg_File.svg);
+    background-size: 10rem;
+  }
+  
+  .right-shoe {
+    animation: shoe-turn 2s ease-in-out infinite;
+  }
+  
+  .left-shoe {
+    animation: shoe-turn 2s ease-in-out 1s infinite;
+  }
+  
+  
+  .floor {
+    background: #111;
+    flex-basis: 40%;
+  }
+  
+  @keyframes stride {
+    0%, 100% {
+      transform: rotate(-22deg);
+    }
+    50% {
+      transform: rotate(40deg);
+    }
+  }
+  
+  @keyframes shoe-turn {
+      0%, 100% {
+          transform: rotate(-10deg) translateY(-5px) translateX(10px);
+      }
+      25% {
+          transform: rotate(0deg) translateY(0px) translateX(0);
+      }
+      50% {
+          transform: rotate(10deg) translateY(-10px) translateX(10px);
+      }
+      75% {
+          transform: rotate(0deg) translateY(-30px) translateX(0);
+      }
+  }

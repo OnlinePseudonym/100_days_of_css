@@ -1,0 +1,74 @@
+.frame {  
+    background: #ec5c67;
+    height: 25rem;
+    width: 25rem;
+    margin: auto;
+    margin-top: 2rem;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+  }
+  
+  .outer {
+    grid-area: 10 / 10 / 16 / 16;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+    animation-name: scale-outer;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .middle {
+    grid-area: 11 / 11 / 15 / 15;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+    animation-name: scale-middle;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .inner {
+    grid-area: 12 / 12 / 14 / 14;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+    animation-name: scale-inner;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes scale-outer{
+    0%, 10% {
+      transform: scale(0);
+    }
+    
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes scale-middle{
+    0%, 40% {
+      transform: scale(0);
+    }
+    
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes scale-inner{
+    0%, 70% {
+      transform: scale(0);
+    }
+    
+    100% {
+      transform: scale(1);
+    }
+  }

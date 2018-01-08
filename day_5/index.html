@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>100 Days of CSS Day 5</title>
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="frame">
+            <div class="chart"></div>
+            <div class="header">
+                <span class="title">WEEKLY REPORT</span>
+                <span class="range">01.Feb-07.Feb</span>
+                <span class="revenue-title">Revenue</span>
+                <span class="revenue">$3621.79</span>
+            </div>
+            <div class="graph">
+                <div class="legend">
+                <div class="views">
+                    <div class="red"></div>
+                    Views
+                </div>
+                <div class="purchases">
+                    <div class="blue"></div>
+                    Purchases
+                </div>
+                </div>
+                <div class="line-1"></div>
+                <div class="line-2"></div>
+                <div class="line-3"></div>
+                
+                <div class="days">
+                <span>MON</span>
+                <span>TUE</span>
+                <span>WED</span>
+                <span>THU</span>
+                <span>FRI</span>
+                <span>SAT</span>
+                <span>SUN</sun>
+                </div>
+            </div>
+            <svg class="red-line">
+                <polyline points="0,55 38,27 76,40 114,23 152,50 190,58 228,39"/>
+            </svg>
+            <svg class="blue-line">
+                <polyline points="0,36 38,24 76,38 114,27 152,36 190,46 228,39"/>
+            </svg>
+        </div>
+    </body>
+</html>

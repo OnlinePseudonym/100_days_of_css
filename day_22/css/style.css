@@ -1,0 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300);
+
+.root {
+  width: 25rem;
+  height: 25rem;
+  margin: auto;
+  margin-top: 2rem;
+  background: #263b4d;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  display: grid;
+  grid-template-rows: repeat(18, 1fr);
+  grid-template-columns: repeat(18, 1fr);
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 3px;
+}
+
+h1 {
+  grid-area: 2 / 7 / 5 / 13;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  color: #f0f0f0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.bold-h1 {
+  margin-top: -1.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.calories, .steps, .miles {
+  grid-area: 6 / 7 / 12 / 13;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.cal-bar, .steps-bar, .miles-bar {
+  fill: none;
+  stroke-width: .75rem;
+  stroke: #111;
+}
+
+.cal-progress, .steps-progress, .miles-progress {
+  fill: none;
+  stroke-width: .75rem;
+  stroke: #0bf1b8;
+  stroke-linecap: round;
+  stroke-dasharray: 345;
+  stroke-dashoffset: 55;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  animation: cal 1s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.steps {
+  grid-area: 13 / 4 / 17 / 8;
+}
+
+.steps-bar, .miles-bar {
+  stroke-width: .5rem;
+}
+
+.steps-progress, .miles-progress {
+  stroke-width: .5rem;
+  stroke: #0be9f1;
+  stroke-dasharray: 240;
+  animation: distance 1s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.miles {
+  grid-area: 13 / 12 / 17 / 16;
+}
+
+.cal-info, .steps-info, .miles-info {
+  grid-area: 3 / 3 / 7 / 7;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  justify-items: center;
+}
+
+.cal-current, .steps-current, .miles-current {
+  color: #f0f0f0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.cal-text, .steps-text, .miles-text {
+  color: #708597;
+  font-weight: 300;
+  margin-top: -.25rem;
+}
+
+.steps-current, .miles-current {
+  font-size: 1rem;
+}
+
+.steps-text, .miles-text {
+  font-size: .75rem;
+}
+
+@keyframes cal {
+  0% {
+    stroke-dashoffset: 350;
+  }
+  100% {
+    stroke-dashoffset: 55;
+  }
+}
+
+@keyframes distance {
+  0% {
+    stroke-dashoffset: 240;
+  }
+  100% {
+    stroke-dashoffset: 80;
+  }
+}

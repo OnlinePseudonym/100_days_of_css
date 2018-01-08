@@ -1,0 +1,91 @@
+.frame {
+    width: 25rem;
+    height: 25rem;
+    margin: auto;
+    margin-top: 2rem;
+    background: #444;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+  }
+  
+  .tile {
+    grid-area: 3 / 2 / 6 / 3;
+    perspective: 1000px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .tile:hover .flipper {
+    transform: rotateX(180deg);
+    box-shadow: 4px -4px 15px rgba(0,0,0,0.8);
+  }
+  
+  .flipper {
+    position: relative;
+    grid-area: 1 / 1 / 2 / 2;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.8);
+    transition: 1.2s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  
+  .front, .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #f1c54b;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    z-index: 2;
+    transform: rotateX(0deg);
+  }
+  
+  .back {
+    transform: rotateX(180deg);
+  }
+  
+  .bike {
+    transform-origin: 50% 100%;
+    animation: bike .8s ease-in-out infinite;
+  }
+  
+  .helicopter {
+    z-index: 1;
+    animation: helicopter 2s ease-in-out infinite;
+  }
+  
+  .bike, .helicopter {
+    grid-area: 1 / 1 / 2 / 2;
+    height: 10rem;
+    width: 10rem;
+  }
+  
+  @keyframes bike {
+    0, 100% {
+      transform: scaleY(1);
+    }
+    
+    50% {
+      transform: scaleY(1.03);
+    }
+  }
+  
+  @keyframes helicopter {
+    0, 100% {
+      transform: translateY(-1rem);
+    }
+    50% {
+      transform: translateY(1rem);
+    }
+  }
